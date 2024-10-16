@@ -1,0 +1,9 @@
+# Viết chương trình đếm số nguyên âm trong chuỗi nhập từ bàn phím
+chuoi = input("Nhập một chuỗi: ")
+nguyen_am = "ueoaiUEOAI"
+dem = 0
+for ky_tu in chuoi:
+    if ky_tu in nguyen_am:
+        dem += 1
+print("Số nguyên âm:", dem)
+

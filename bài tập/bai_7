@@ -1,0 +1,24 @@
+# Trò chơi đổi vai: máy tính đoán số của bạn
+import random
+def com_guess_number():
+    so_thap_nhat = 1
+    so_cao_nhat = 100
+    so_lan = 0
+    so_lan_toi_da = 5
+    print("Hãy nghĩ về một con số từ 1 đến 100, COM sẽ cố gắng đoán!")
+    while so_lan < so_lan_toi_da:
+        guess = random.randint(so_thap_nhat, so_cao_nhat)
+        print(f"Lần đoán {so_lan + 1}: Máy đoán {guess}")
+        response = input("Nếu số bạn nhập lớn hơn thì nhập 'lớn hơn', nhỏ hơn thì nhập 'nhỏ hơn', bằng thì nhập 'bằng': ")
+        if response == 'bằng':
+            print(f"Máy đã đoán đúng! Số bạn nghĩ là {guess}. Máy thắng!")
+            break
+        elif response == 'lớn hơn':
+            so_thap_nhat = guess + 1 
+        elif response == 'nhỏ hơn':
+            so_cao_nhat = guess - 1 
+        so_lan += 1
+    if so_lan == so_lan_toi_da and response != 'bằng':
+        print("Máy đã hết số lần đoán. Máy thua!")
+com_guess_number()
+

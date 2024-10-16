@@ -1,0 +1,42 @@
+# Viết chương trình trò chơi mô phỏng tung xúc xắc
+import random
+def xuc_xac():
+    xuc_xac_1 = random.randint(1, 6)
+    xuc_xac_2 = random.randint(1, 6)
+    return xuc_xac_1, xuc_xac_2
+def choi():
+    tien = float(input("Nhập số tiền hiện có: "))
+    tong_lan_choi = 0
+    thang = 0
+    thua = 0
+    while tien > 0:
+        print(f"\nBạn hiện có {tien} tiền.")
+        guess = input("Dự đoán của bạn là gì? (Tài hoặc Xỉu): ").strip().lower()
+        cuoc = float(input("Số tiền muốn cược: "))
+        if cuoc > tien:
+            print("Bạn không đủ tiền để cược.")
+            continue
+        xuc_xac_1, xuc_xac_2 = xuc_xac()
+        tong_xuc_xac = xuc_xac_1 + xuc_xac_2
+        print(f"Kết quả tung xúc xắc: {xuc_xac_1} và {xuc_xac_2} (Tổng: {tong_xuc_xac})")
+        result = "tài" if tong_xuc_xac > 5 else "xỉu"
+        print(f"Kết quả là: {result.capitalize()}")
+        if guess == result:
+            print("Bạn đã đoán đúng!")
+            tien += cuoc  # Thắng, cộng tiền cược
+            thang += 1
+        else:
+            print("Bạn đã đoán sai.")
+            tien -= cuoc  # Thua, trừ tiền cược
+            thua += 1
+        tong_lan_choi += 1
+        continue_playing = input("Có muốn chơi tiếp không? (Có/Không): ").strip().lower()
+        if continue_playing != "có":
+            break
+    print("\nKết thúc trò chơi.")
+    print(f"Tổng số lượt chơi: {tong_lan_choi}")
+    print(f"Số lần thắng: {thang}")
+    print(f"Số lần thua: {thua}")
+    print(f"Số tiền còn lại: {tien}")
+choi()
+

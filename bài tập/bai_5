@@ -1,0 +1,12 @@
+# Viết chương trình đếm số từ trong câu người dùng nhập
+cau = input("Nhập một câu: ")
+dem = 0
+trong_tu = False
+for tu in cau:
+    if tu != " " and not trong_tu:
+        dem += 1
+        trong_tu = True
+    elif tu == " ":
+        trong_tu = False
+print("Số từ trong câu:", dem)
+

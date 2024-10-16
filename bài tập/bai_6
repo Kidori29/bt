@@ -1,0 +1,16 @@
+# Viết chương trình thực hiện trò chơi đoán số
+import random
+so_ngau_nhien = random.randint(1, 100)
+so_lan_doan = 5
+for lan in range(1, so_lan_doan + 1):
+    so_doan = int(input(f"Nhập số đoán lần {lan}: "))
+    if so_doan == so_ngau_nhien:
+        print("Bạn đã đoán đúng sau", lan, "lần")
+        break
+    elif so_doan < so_ngau_nhien:
+        print("Số bạn nhập nhỏ hơn số của máy")
+    else:
+        print("Số bạn nhập lớn hơn số của máy")
+if lan == so_lan_doan and so_doan != so_ngau_nhien:
+    print("Bạn đã hết lượt chơi")
+
